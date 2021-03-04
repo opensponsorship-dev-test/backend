@@ -15,15 +15,7 @@ exports.getAthletes = asyncHandler(async (req, res, next) => {
 exports.createAthlete = asyncHandler(async (req, res, next) => {
   console.log(req.body);
   const athlete = await Athlete.create(req.body);
-  res.status(200).json({success: true, athlete});
-});
-
-//@desc Create a new athlete
-//@route POST /api/athletes
-//@access Public
-exports.createAthlete = asyncHandler(async (req, res, next) => {
-  console.log(req.body);
-  const athlete = await Athlete.create(req.body);
+  await Athlete.findOneAndUpdate({_id: req.body.id}, {$push: {sports: req.body.sport}});
   res.status(200).json({success: true, athlete});
 });
 
