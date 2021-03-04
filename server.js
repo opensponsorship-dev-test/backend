@@ -3,7 +3,6 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const errorHandler = require("./middleware/error");
 const cors = require("cors");
-const morgan = require("morgan");
 const path = require("path");
 
 //Load env vars
@@ -20,10 +19,6 @@ const app = express();
 //Body Parser
 app.use(express.json());
 
-//Dev logging middleware
-if (process.env.NODE_ENV === "development") {
-  app.use(morgan("dev"));
-}
 
 //Enable CORS
 app.use(cors());
