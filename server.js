@@ -19,7 +19,6 @@ const app = express();
 //Body Parser
 app.use(express.json());
 
-
 //Enable CORS
 app.use(cors());
 
@@ -27,7 +26,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
 
 //Mount routes
-app.use("/api/athlete", athlete);
+app.use("/api/athletes", athlete);
 
 app.use(errorHandler);
 

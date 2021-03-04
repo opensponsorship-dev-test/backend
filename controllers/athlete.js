@@ -20,7 +20,7 @@ exports.createAthlete = asyncHandler(async (req, res, next) => {
 });
 
 //@desc    Update athlete
-//@route   PUT /api/athlete/:id
+//@route   PUT /api/athletes/:id
 //@access  Public
 exports.updateAthlete = asyncHandler(async (req, res, next) => {
   let updatedAthlete = await Athlete.findById(req.params.id);
